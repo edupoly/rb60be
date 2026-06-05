@@ -9,7 +9,7 @@ function addTodo(req, res) {
   res.send("please wait... im preparing...");
 }
 function getUserTodos(req, res) {
-  TodoModel.find({ username: req.params.username }).then((data) => {
+  TodoModel.find({ username: req.username }).then((data) => {
     res.send(data);
   });
 }

@@ -8,6 +8,7 @@ var fruitsRouter = require("./routes/fruit.routes");
 var authRouter = require("./routes/auth.routes");
 var todoRouter = require("./routes/todo.routes");
 var dbConnect = require("./db");
+const { authenticate } = require("./middlewares/auth.middleware");
 dbConnect();
 
 app.use(cors());
@@ -23,7 +24,7 @@ app.use("/employees", empRouter);
 
 app.use("/fruits", fruitsRouter);
 
-app.use("/todos", todoRouter);
+app.use("/todos", authenticate, todoRouter);
 
 app.listen(3500, () => {
   console.log("server running on 3500");

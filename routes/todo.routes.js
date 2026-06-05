@@ -5,6 +5,6 @@ var router = express.Router();
 
 router.post("/", addTodo);
 
-router.get("/:username", getUserTodos);
+router.get("/", getUserTodos);
 
 module.exports = router;

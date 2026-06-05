@@ -8,7 +8,10 @@ var checkUserAuth = (req, res) => {
     .then((data) => {
       console.log(data);
       if (data.length != 0) {
-        var token = jwt.sign({ foo: "bar" }, "deepika is my fav");
+        var token = jwt.sign(
+          { username: req.body.username },
+          "deepika is my fav",
+        );
         res.send({ msg: "success", token, username: req.body.username });
       } else {
         res.send({ msg: "failed" });
