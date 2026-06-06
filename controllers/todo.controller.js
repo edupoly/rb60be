@@ -1,12 +1,12 @@
 var TodoModel = require("../model/todos.model");
 function addTodo(req, res) {
   var newTodo = new TodoModel({
-    username: req.body.username,
+    username: req.username,
     title: req.body.title,
     status: false,
   });
   newTodo.save();
-  res.send("please wait... im preparing...");
+  res.send({ msg: "todo added" });
 }
 function getUserTodos(req, res) {
   TodoModel.find({ username: req.username }).then((data) => {
