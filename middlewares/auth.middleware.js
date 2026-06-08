@@ -2,7 +2,7 @@ var jwt = require("jsonwebtoken");
 
 function authenticate(req, res, next) {
   if (req.headers.token) {
-    var ob = jwt.verify(req.headers.token, "deepika is my fav");
+    var ob = jwt.verify(req.headers.token, process.env.SECRET_KEY);
     req.username = ob.username;
     next();
   } else {

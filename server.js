@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
@@ -26,6 +27,6 @@ app.use("/fruits", fruitsRouter);
 
 app.use("/todos", authenticate, todoRouter);
 
-app.listen(3500, () => {
-  console.log("server running on 3500");
+app.listen(process.env.PORT || 3500, () => {
+  console.log(`server running on ${process.env.PORT || 3500}`);
 });

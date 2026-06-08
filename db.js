@@ -2,11 +2,9 @@ var mongoose = require("mongoose");
 
 function dbConnect() {
   mongoose
-    .connect(
-      "mongodb+srv://praveen:hello123@cluster0.l8nf5yw.mongodb.net/rb60?appName=Cluster0",
-    )
+    .connect(process.env.MONGO_URL)
     .then(() => {
-      console.log("Connection Established");
+      console.log("Connection Established to MongoDB " + process.env.MONGO_URL);
     })
     .catch((err) => {
       console.log("Connect Error", err);
