@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "postinstall": "node scripts/setup-env.js",
+    "start": "node server.js"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
